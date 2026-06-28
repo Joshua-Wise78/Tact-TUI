@@ -1,5 +1,6 @@
 #pragma once
 
+#include <queue>
 #include <string>
 #include <vector>
 
@@ -32,6 +33,10 @@ class CustomBookProvider : public TextProvider {
 private:
   std::string filepath;
   size_t current_position;
+  std::vector<std::string> words;
+  std::queue<std::string> current_snippet;
+
+  void generate_new_snippet();
 
 public:
   CustomBookProvider(const std::string &filepath);

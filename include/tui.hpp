@@ -2,10 +2,18 @@
 
 #include "engine.hpp"
 
+struct AppConfig {
+  int provider_type;
+  int duration;
+  bool quit;
+};
+
 class TUI {
 public:
-  TUI() = default;
-  ~TUI() = default;
+  TUI();
+  ~TUI();
 
-  void run(Engine &engine);
+  AppConfig show_menu();
+  void run_test(Engine &engine);
+  void show_results(const GameStats &stats);
 };
